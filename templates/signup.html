@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Sign Up</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/signup.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="signup-box">
+
+<h2><i class="fas fa-user-shield"></i> Admin Registration</h2>
+
+<form method="POST">
+
+<input type="text"
+name="username"
+placeholder="Create Username"
+required>
+
+<input type="email"
+name="email"
+placeholder="Email"
+required>
+
+<input type="password"
+name="password"
+placeholder="Create Password"
+required>
+
+<input type="password"
+name="confirm_password"
+placeholder="Confirm Password"
+required>
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+<p>
+
+Already have an account?
+
+<a href="/login">
+
+Login
+
+</a>
+
+</p>
+
+</div>
+
+</body>
+</html>

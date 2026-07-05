@@ -1,0 +1,208 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#4b0000,#7a0c0c,#d69b2d);
+
+    padding:30px;
+
+}
+
+.container{
+
+    width:95%;
+    margin:auto;
+
+}
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,0.12);
+
+    padding:20px;
+
+    border-radius:15px;
+
+    backdrop-filter:blur(10px);
+
+    margin-bottom:25px;
+
+}
+
+.header h1{
+
+    color:#FFD36B;
+    font-size:30px;
+
+}
+
+.back-btn{
+
+    text-decoration:none;
+
+    background:#FFD36B;
+
+    color:#4b0000;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:white;
+
+}
+
+.table-box{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#5b0b0b;
+
+    color:#FFD36B;
+
+}
+
+th{
+
+    padding:15px;
+
+    text-align:center;
+
+}
+
+td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+tbody tr:hover{
+
+    background:#fff8e8;
+
+}
+
+.download-btn{
+
+    width:38px;
+    height:38px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#3498db;
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-right:8px;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#217dbb;
+
+}
+
+.delete-btn{
+
+    width:38px;
+    height:38px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e74c3c;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#c0392b;
+
+}
+
+@media(max-width:900px){
+
+table{
+
+    font-size:13px;
+
+}
+
+th,td{
+
+    padding:10px;
+
+}
+
+.header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Attendance History</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/attendance_history.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+<i class="fas fa-history"></i>
+Attendance History
+</h1>
+
+<a href="/dashboard" class="back-btn">
+<i class="fas fa-arrow-left"></i>
+Dashboard
+</a>
+
+</div>
+
+<div class="download-section">
+    <a href="/attendance_pdf" class="pdf-btn">
+    <i class="fas fa-file-pdf"></i>
+    Download PDF
+</a>
+</div>
+
+<div class="search-section">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Employee..."
+onkeyup="searchAttendance()">
+
+</div>
+
+<div class="table-box">
+
+<table id="attendanceTable">
+
+<thead>
+
+<tr>
+
+<th>Employee Code</th>
+<th>Name</th>
+<th>Date</th>
+<th>Check In</th>
+<th>Check Out</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for row in data %}
+
+<tr>
+
+<td>{{ row.employee_code }}</td>
+
+<td>{{ row.name }}</td>
+
+<td>{{ row.attendance_date }}</td>
+
+<td>{{ row.check_in }}</td>
+
+<td>{{ row.check_out }}</td>
+
+<td>
+
+{% if row.status=="Present" %}
+
+<span class="present">Present</span>
+
+{% elif row.status=="Absent" %}
+
+<span class="absent">Absent</span>
+
+{% elif row.status=="Late" %}
+
+<span class="late">Late</span>
+
+{% else %}
+
+<span class="halfday">Half Day</span>
+
+{% endif %}
+
+</td>
+
+<td>
+    <a href="{{ url_for('delete_attendance', attendance_id=row.attendance_id) }}"
+class="delete-btn"
+onclick="return confirm('Delete this attendance record?')">
+
+<i class="fas fa-trash"></i>
+
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function searchAttendance(){
+
+let input=document.getElementById("searchInput").value.toUpperCase();
+
+let table=document.getElementById("attendanceTable");
+
+let tr=table.getElementsByTagName("tr");
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[1];
+
+if(td){
+
+let txt=td.textContent||td.innerText;
+
+tr[i].style.display=txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

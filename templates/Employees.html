@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employees</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/employees.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+
+<i class="fas fa-users"></i>
+
+Employee Management
+
+</h1>
+
+<div>
+
+<a href="/register_employee" class="add-btn">
+
+<i class="fas fa-user-plus"></i>
+
+Add Employee
+
+</a>
+
+<a href="/dashboard" class="back-btn">
+
+<i class="fas fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Search Employee..."
+onkeyup="searchEmployee()">
+
+<i class="fas fa-search"></i>
+
+</div>
+
+<div class="table-container">
+
+<table id="employeeTable">
+
+<thead>
+
+<tr>
+
+<th>Employee ID</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Designation</th>
+
+<th>Phone</th>
+
+<th>Email</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for employee in employees %}
+
+<tr>
+
+<td>{{ employee.emp_id }}</td>
+
+<td>{{ employee.name }}</td>
+
+<td>{{ employee.department_id }}</td>
+
+<td>{{ employee.designation }}</td>
+
+<td>{{ employee.phone }}</td>
+
+<td>{{ employee.email }}</td>
+
+<td>
+
+<span class="active">
+
+active 
+
+</span>
+
+</td>
+
+<td>
+
+<a href="/view_employee/{{ employee.emp_id }}"
+class="view">
+
+<i class="fas fa-eye"></i>
+
+</a>
+
+<a href="/edit_employee/{{ employee.emp_id }}"
+class="edit">
+
+<i class="fas fa-edit"></i>
+
+</a>
+
+<a href="/delete_employee/{{ employee.emp_id }}"
+class="delete"
+onclick="return confirm('Delete this employee?')">
+
+<i class="fas fa-trash"></i>
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function searchEmployee(){
+
+let input=document.getElementById("search").value.toUpperCase();
+
+let table=document.getElementById("employeeTable");
+
+let tr=table.getElementsByTagName("tr");
+
+for(let i=1;i<tr.length;i++){
+
+let td=tr[i].getElementsByTagName("td")[2];
+
+if(td){
+
+let txt=td.textContent||td.innerText;
+
+tr[i].style.display=txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salary Slip</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+body{
+
+    margin:0;
+    padding:30px;
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#4b0000,#7a0c0c,#d4af37);
+
+}
+
+.container{
+
+    width:850px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.header{
+
+    background:linear-gradient(90deg,#5b0000,#8b0000,#d4af37);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.header h1{
+
+    margin:0;
+
+    color:#FFD700;
+
+    font-size:34px;
+
+}
+
+.header h3{
+
+    margin-top:10px;
+
+    color:white;
+
+    font-weight:400;
+
+}
+
+.content{
+
+    padding:30px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table td{
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+}
+
+.title{
+
+    background:#8b0000;
+
+    color:#FFD700;
+
+    font-weight:bold;
+
+    width:35%;
+
+}
+
+.amount{
+
+    color:green;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.buttons{
+
+    text-align:center;
+
+    margin:30px;
+
+}
+
+button{
+
+    background:#8b0000;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    margin:10px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#5b0000;
+
+}
+
+@media print{
+
+    .buttons{
+
+        display:none;
+
+    }
+
+    body{
+
+        background:white;
+
+        padding:0;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>Employee Salary Slip</h1>
+
+</div>
+
+<div class="content">
+
+<table>
+
+<tr>
+
+<td class="title">Employee Code</td>
+
+<td>{{ employee.employee_code }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Employee Name</td>
+
+<td>{{ employee.name }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Designation</td>
+
+<td>{{ employee.designation }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Monthly Salary</td>
+
+<td>₹ {{ employee.basic_salary }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Present Days</td>
+
+<td>{{ employee.present_days }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Per Day Salary</td>
+
+<td>₹ {{ employee.per_day_salary }}</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Salary Payable</td>
+
+<td>
+
+₹ {{ employee.salary_payable }}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Bonus</td>
+
+<td>
+
+₹ {{ employee.bonus }}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Deduction</td>
+
+<td>
+
+₹ {{ employee.deduction }}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="title">Net Salary</td>
+
+<td class="amount">
+
+₹ {{ employee.net_salary }}
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="buttons">
+
+<button onclick="window.print()">
+
+<i class="fas fa-print"></i>
+
+Print Salary Slip
+
+</button>
+
+<button onclick="history.back()">
+
+<i class="fas fa-arrow-left"></i>
+
+Back
+
+</button>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

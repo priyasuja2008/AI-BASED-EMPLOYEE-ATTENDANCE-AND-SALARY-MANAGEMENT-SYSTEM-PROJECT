@@ -1,0 +1,211 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#8B0000,#a00000,#FFD700);
+    min-height:100vh;
+    padding:30px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#8B0000;
+    color:white;
+    padding:20px 30px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.header h1{
+    color:#FFD700;
+    font-size:30px;
+}
+
+.back-btn{
+    text-decoration:none;
+    background:#FFD700;
+    color:#8B0000;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:white;
+    transform:translateY(-3px);
+}
+
+.search-section{
+    margin-bottom:20px;
+}
+
+.search-section input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#8B0000;
+}
+
+thead th{
+    color:#FFD700;
+    padding:15px;
+}
+
+tbody td{
+    text-align:center;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+tbody tr:hover{
+    background:#fff8dc;
+}
+
+.present{
+    background:#28a745;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.absent{
+    background:#dc3545;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.leave{
+    background:#007bff;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.halfday{
+    background:#ffc107;
+    color:black;
+    padding:6px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.download-section{
+    margin:20px 0;
+}
+
+.pdf-btn{
+
+background:#8B0000;
+
+color:#FFD700;
+
+padding:10px 18px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+display:inline-block;
+
+}
+
+.pdf-btn:hover{
+
+background:#5B0000;
+
+}
+
+@media(max-width:768px){
+
+.header{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+}
+
+.back-btn{
+    width:100%;
+    text-align:center;
+}
+
+table{
+    min-width:900px;
+}
+
+}
+
+
+.delete-btn{
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e74c3c;
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:auto;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#c0392b;
+
+    transform:scale(1.08);
+
+}
+

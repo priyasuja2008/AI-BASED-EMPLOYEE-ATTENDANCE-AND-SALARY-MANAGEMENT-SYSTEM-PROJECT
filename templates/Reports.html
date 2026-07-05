@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reports</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/reports.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+
+<i class="fas fa-chart-bar"></i>
+
+Reports Dashboard
+
+</h1>
+
+<a href="/dashboard" class="back-btn">
+
+<i class="fas fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-users"></i>
+
+<h2>{{ total_employees }}</h2>
+
+<p>Total Employees</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-user-check"></i>
+
+<h2>{{ present_today }}</h2>
+
+<p>Present Today</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-user-times"></i>
+
+<h2>{{ absent_today }}</h2>
+
+<p>Absent Today</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-calendar-check"></i>
+
+<h2>{{ total_attendance }}</h2>
+
+<p>Total Attendance</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

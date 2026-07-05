@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>HR SYSTEM</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/employees">Employees</a>
+    <a href="/attendance">Attendance</a>
+    <a href="/salary">Salary</a>
+    <a href="/reports">Reports</a>
+    <a href="/history">History</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main-content">
+
+    <h1>Attendance History</h1>
+
+    <table>
+
+        <tr>
+            <th>Name</th>
+            <th>Date & Time</th>
+        </tr>
+
+        {% for row in history_data %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.time }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

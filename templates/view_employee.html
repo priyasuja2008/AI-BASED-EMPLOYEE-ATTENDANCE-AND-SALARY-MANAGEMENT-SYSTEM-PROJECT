@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employee Details</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/view_employee.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+
+<i class="fas fa-user"></i>
+
+Employee Details
+
+</h1>
+
+<a href="/employees" class="back-btn">
+
+<i class="fas fa-arrow-left"></i>
+
+Back
+
+</a>
+
+</div>
+
+<div class="profile-card">
+
+
+<div class="details">
+
+<table>
+
+<tr>
+
+<th>Employee Code</th>
+
+<td>{{ employee.employee_code }}</td>
+
+</tr>
+
+<tr>
+
+<th>Full Name</th>
+
+<td>{{ employee.name }}</td>
+
+</tr>
+
+<tr>
+
+<th>Gender</th>
+
+<td>{{ employee.gender }}</td>
+
+</tr>
+
+<tr>
+
+<th>Date of Birth</th>
+
+<td>{{ employee.dob }}</td>
+
+</tr>
+
+<tr>
+
+<th>Email</th>
+
+<td>{{ employee.email }}</td>
+
+</tr>
+
+<tr>
+
+<th>Phone</th>
+
+<td>{{ employee.phone }}</td>
+
+</tr>
+
+<tr>
+
+<th>Address</th>
+
+<td>{{ employee.address }}</td>
+
+</tr>
+
+<tr>
+
+<th>Department</th>
+
+<td>{{ employee.department_id }}</td>
+
+</tr>
+
+<tr>
+
+<th>Designation</th>
+
+<td>{{ employee.designation }}</td>
+
+</tr>
+
+<tr>
+
+<th>Joining Date</th>
+
+<td>{{ employee.join_date }}</td>
+
+</tr>
+
+<tr>
+
+<th>Monthly Salary</th>
+
+<td>₹ {{ employee.basic_salary }}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

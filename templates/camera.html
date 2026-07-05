@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Camera Attendance</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/camera.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.employee-box{
+
+width:420px;
+margin:20px auto;
+text-align:center;
+
+}
+
+.employee-box select{
+
+width:100%;
+padding:12px;
+font-size:16px;
+border-radius:10px;
+border:2px solid #8B0000;
+outline:none;
+
+}
+
+.capture-btn{
+
+margin-top:15px;
+padding:12px 30px;
+font-size:17px;
+border:none;
+border-radius:10px;
+background:#8B0000;
+color:white;
+cursor:pointer;
+
+}
+
+.capture-btn:hover{
+
+background:#a00000;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>
+
+<i class="fas fa-camera"></i>
+
+Camera Attendance
+
+</h1>
+
+<a href="/dashboard" class="back-btn">
+
+<i class="fas fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+<div class="camera-card">
+
+<h2>Live Camera</h2>
+
+<img
+id="video"
+src="/video_feed"
+width="700"
+class="camera-frame">
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+<h3 id="employee_name"></h3>
+
+<p id="message"></p>
+
+<!-- Employee Selection -->
+
+<div class="employee-box">
+
+<select id="employee_code">
+
+{% for employee in employees %}
+
+<option value="{{ employee.employee_code }}">
+
+{{ employee.employee_code }} - {{ employee.name }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<button
+class="capture-btn"
+id="capture">
+
+<i class="fas fa-camera"></i>
+
+Capture Face
+
+</button>
+
+</div>
+
+<p id="datetime"></p>
+
+</div>
+
+</div>
+
+<script>
+
+// ---------------- Attendance Message ---------------- //
+
+function updateStatus(){
+
+fetch("/camera_message")
+
+.then(response=>response.json())
+
+.then(data=>{
+
+document.getElementById("employee_name").innerHTML=
+
+"👤 Employee : "+(data.employee||"");
+
+document.getElementById("message").innerHTML=
+
+data.message||"";
+
+});
+
+}
+
+// ---------------- Date Time ---------------- //
+
+function updateDateTime(){
+
+const now=new Date();
+
+const options={
+
+weekday:"long",
+
+year:"numeric",
+
+month:"long",
+
+day:"numeric"
+
+};
+
+document.getElementById("datetime").innerHTML=
+
+"📅 "+now.toLocaleDateString("en-IN",options)
+
++"<br>🕒 "+now.toLocaleTimeString("en-IN");
+
+}
+
+setInterval(updateStatus,1000);
+
+setInterval(updateDateTime,1000);
+
+updateStatus();
+
+updateDateTime();
+
+// ---------------- Capture Face ---------------- //
+
+document.getElementById("capture").onclick=function(){
+
+fetch("/capture_face",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/x-www-form-urlencoded"
+
+},
+
+body:
+
+"employee_code="+
+
+encodeURIComponent(
+
+document.getElementById("employee_code").value
+
+)
+
+})
+
+.then(response=>response.json())
+
+.then(data=>{
+
+alert(data.message);
+
+});
+
+};
+
+// ---------------- Stop Camera ---------------- //
+
+window.addEventListener("beforeunload",function(){
+
+fetch("/stop_camera");
+
+});
+
+</script>
+
+</body>
+
+</html>

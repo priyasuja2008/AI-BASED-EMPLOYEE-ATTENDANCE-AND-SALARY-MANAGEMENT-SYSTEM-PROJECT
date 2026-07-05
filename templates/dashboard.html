@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VisionAttend AI Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar" id="sidebar">
+
+    <div class="logo">
+
+        <h2>VisionAttend AI</h2>
+
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <a href="/dashboard">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/register_employee">
+                <i class="fas fa-user-plus"></i>
+                Employee Registration
+            </a>
+        </li>
+        <li>   
+            <a href="/employees">
+               <i class="fas fa-users"></i>
+               Employees
+            </a>
+        </li>
+
+        <li>
+            <a href="/attendance">
+                <i class="fas fa-calendar-check"></i>
+                Attendance
+            </a>
+        </li>
+
+        <li>
+            <a href="/attendance_history">
+                <i class="fas fa-history"></i>
+                Attendance History
+            </a>
+        </li>
+
+        <li>
+            <a href="/bonus_deduction">
+                <i class="fas fa-gift"></i>
+            Bonus & Deduction
+            </a>
+        </li>
+
+        <li>
+            <a href="/camera">
+                <i class="fas fa-video"></i>
+                Camera
+            </a>
+        </li>
+
+        <li>
+            <a href="/reports">
+                <i class="fas fa-chart-line"></i>
+                Reports
+            </a>
+        </li>
+
+        <li>
+            <a href="/salary">
+                <i class="fas fa-money-bill-wave"></i>
+                Salary
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout"
+onclick="return confirm('Are you sure you want to logout?')"
+class="logout-btn">
+
+<i class="fas fa-sign-out-alt"></i>
+
+Logout
+
+</a>
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="main">
+
+<div class="topbar">
+
+<button id="menu-btn">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+<h1>Dashboard</h1>
+
+<div class="admin">
+
+<i class="fas fa-user-circle"></i>
+
+<span>Administrator</span>
+
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fas fa-users"></i>
+
+<h2>Employees</h2>
+
+<h3>{{ total_employees }}</h3>
+
+</div>
+
+
+<div class="card">
+
+<i class="fas fa-user-check"></i>
+
+<h2>Present</h2>
+
+<h3>{{ present }}</h3>
+
+</div>
+
+
+<div class="card">
+
+<i class="fas fa-user-times"></i>
+
+<h2>Absent</h2>
+
+<h3>{{ absent }}</h3>
+
+</div>
+
+<div class="card">
+
+    <div class="icon">
+        <i class="fas fa-calendar-alt"></i>
+    </div>
+
+    <div class="info">
+
+        <h3>Date & Time</h3>
+
+        <h2 id="currentTime"></h2>
+
+        <p id="currentDate"></p>
+
+    </div>
+
+</div>
+
+
+<div class="welcome">
+
+       <h2>Welcome Admin 👋</h2>
+
+       <p>
+
+         Manage employees, attendance, reports and CCTV monitoring from one dashboard.
+
+       </p>
+
+</div>
+
+</div>
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const menu = document.getElementById("menu-btn");
+
+menu.onclick = function () {
+
+    if (window.innerWidth <= 900) {
+        sidebar.classList.toggle("show");
+    } else {
+        sidebar.classList.toggle("hide");
+
+        if (sidebar.classList.contains("hide")) {
+            document.querySelector(".main").style.marginLeft = "0";
+        } else {
+            document.querySelector(".main").style.marginLeft = "260px";
+        }
+    }
+};
+</script>
+
+<footer class="footer">
+
+<p>
+
+© 2026 AI Attendance Management System |
+Developed by Priyadharshini R
+
+</p>
+
+</footer>
+
+<script>
+
+function updateDateTime(){
+
+    const now = new Date();
+
+    document.getElementById("currentTime").innerHTML =
+        now.toLocaleTimeString("en-IN");
+
+    document.getElementById("currentDate").innerHTML =
+        now.toLocaleDateString("en-IN",{
+            weekday:"long",
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        });
+
+}
+
+updateDateTime();
+
+setInterval(updateDateTime,1000);
+
+</script>
+
+</body>
+
+</html>
