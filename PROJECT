@@ -1,0 +1,78 @@
+Project Title
+
+AI-Based Employee Attendance and Salary Management System
+
+Problem Statement
+
+Managing employee attendance and salary records manually is time-consuming and prone to errors. Organizations often face challenges in tracking attendance, calculating salaries, managing leave records, and generating payroll reports accurately. An AI-Based Employee Attendance and Salary Management System automates these processes, improving efficiency, accuracy, and transparency.
+
+Objectives
+
+- To automate employee attendance tracking.
+- To manage employee records efficiently.
+- To automate salary calculation based on attendance data.
+- To maintain leave and payroll records.
+- To reduce manual errors and administrative workload.
+- To provide AI-based insights and reports for management.
+
+Modules
+
+1. Employee Management
+
+- Employee registration
+- Employee profile management
+- Employee record maintenance
+
+2. Attendance Management
+
+- Daily attendance recording
+- Attendance tracking and monitoring
+- Attendance history management
+
+3. Salary Management
+
+- Automatic salary calculation
+- Payroll generation
+- Salary slip generation
+
+4. Leave Management
+
+- Leave application
+- Leave approval/rejection
+- Leave record maintenance
+
+5. AI Analytics Module
+
+- Attendance pattern analysis
+- Employee performance insights
+- Automated report generation
+
+6. Reports Module
+
+- Attendance reports
+- Salary reports
+- Employee performance reports
+
+Database Tables
+
+Table Name   Description
+Employees    Stores employee details
+Attendance   Stores attendance records
+Salary       Stores salary information
+Leave        Stores leave details
+Payroll      Stores payroll records
+Users        Stores login credentials
+Reports      Stores generated reports
+
+Technologies Used
+
+Component   Technology
+Front       End HTML, CSS, Bootstrap, JavaScript
+Back End    Java (Spring Boot)
+Database    MySQL
+IDE         VS Code / IntelliJ IDEA
+AI Module   Machine Learning (Optional)
+
+Expected Outcome
+
+The system provides an efficient way to manage employee attendance and salary processes, reduces paperwork, improves record accuracy, automates payroll generation, and enhances organizational productivity through AI-based analysis and reporting.
